@@ -33,7 +33,7 @@ git clone https://github.com/MickaelMd/Ametis-Live-Map.git
 ```
 
 ```
-cd projet
+cd Ametis-Live-Map
 ```
 
 ```
