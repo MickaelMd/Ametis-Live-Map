@@ -29,7 +29,7 @@ Ce projet est avant tout une expérimentation visant à apprendre et à pratique
 Pour installer et exécuter le projet en local, suivez ces étapes :
 
 ```
-git clone https://github.com/utilisateur/projet.git
+git clone https://github.com/MickaelMd/Ametis-Live-Map.git
 ```
 
 ```
