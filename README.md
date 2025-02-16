@@ -1,3 +1,8 @@
+
+<div align="center">
+  <img src="thumbnail.png" width="300" alt="thumbnail">
+</div>
+
 ## À propos du projet
 
 Ce projet est une application web interactive permettant de visualiser en temps réel les données du réseau de transport public **Ametis**, qui gère les bus de la ville d'Amiens. Il affiche les arrêts de bus, la position des véhicules en circulation et met à jour ces informations dynamiquement.
