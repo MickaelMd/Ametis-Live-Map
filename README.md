@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> d8d8053 (update)
 <div align="center">
   <img src="thumbnail.png" width="300" alt="thumbnail">
 </div>
