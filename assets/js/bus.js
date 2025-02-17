@@ -33,8 +33,10 @@ export async function loadBusData() {
       error("Les données des bus sont à jour.");
       return;
     }
-    if (busData.content.entity.length) {
+    if (typeof busData.content.entity.length != "undefined") {
       console.log(`Nombre total de bus : ${busData.content.entity.length}`);
+    } else {
+      error("Aucun bus en circulation");
     }
 
     busMarkersLayer.clearLayers();
@@ -134,7 +136,6 @@ export async function loadBusData() {
       }
     });
 
-    // Stocker les nouvelles données comme étant les données précédentes
     previousBusData = busData;
   } catch (error) {
     error("Erreur de chargement des données des bus: ", error);
