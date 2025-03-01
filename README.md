@@ -48,6 +48,6 @@ npm install
 npm run start
 ```
 
-Assurez-vous d'avoir **Node.js** (version recommandée : LTS) et **npm** installés sur votre machine avant de lancer l'application.
+Assurez-vous d'avoir **Node.js** et **npm** installés sur votre machine avant de lancer l'application.
 
 
