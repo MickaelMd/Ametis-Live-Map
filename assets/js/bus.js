@@ -35,6 +35,7 @@ export async function loadBusData() {
     }
     if (typeof busData.content.entity.length != "undefined") {
       console.log(`Nombre total de bus : ${busData.content.entity.length}`);
+      error(`Nombre total de bus : ${busData.content.entity.length}`);
     } else {
       error("Aucun bus en circulation");
     }

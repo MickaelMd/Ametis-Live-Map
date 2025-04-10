@@ -37,6 +37,13 @@ document.getElementById("refresh_btn").addEventListener("click", async () => {
   await loadBusData();
 });
 
+document.addEventListener("keydown", async (event) => {
+  if (event.code === "Space") {
+    await scrapeContent();
+    await loadBusData();
+  }
+});
+
 document.getElementById("stopbus_btn").addEventListener("click", () => {
   toggleStops(map);
 });

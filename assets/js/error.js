@@ -6,5 +6,5 @@ export default function error(msg) {
 
   setTimeout(() => {
     errorElement.classList.remove("visible");
-  }, 3000);
+  }, 1500);
 }
