@@ -50,4 +50,7 @@ npm run start
 
 Assurez-vous d'avoir **Node.js** et **npm** installés sur votre machine avant de lancer l'application.
 
+## Licence
+
+Ce projet est sous licence [GNU GPL v3](./LICENSE).
 
