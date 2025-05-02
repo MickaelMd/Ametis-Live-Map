@@ -138,8 +138,10 @@ export async function loadBusData() {
     });
 
     previousBusData = busData;
-  } catch (error) {
-    error("Erreur de chargement des données des bus: ", error);
+  } catch (err) {
+    error(
+      "Impossible de charger les données des bus. Rendez-vous sur Ametis.fr."
+    );
   }
 }
 

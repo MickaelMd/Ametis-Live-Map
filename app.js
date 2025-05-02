@@ -18,24 +18,24 @@ async function scrapeContent() {
   try {
     const response = await fetch(`${BASE_URL}/scrape`);
     if (!response.ok) {
-      throw new Error("Erreur lors du scraping.");
+      throw new Error("Erreur lors du scraping des bus.");
     }
-  } catch (error) {
-    error("Erreur lors de la récupération des données");
+  } catch (err) {
+    error("Impossible de récupérer les données des bus.");
   }
 
   try {
     const response = await fetch(`${BASE_URL}/scrapeDelays`);
     if (!response.ok) {
-      throw new Error("Erreur lors du scraping.");
+      throw new Error("Erreur lors du scraping des retards.");
     }
-  } catch (error) {
-    error("Erreur lors de la récupération des données");
+  } catch (err) {
+    error("Impossible de récupérer les données de retard.");
   }
 }
 
 window.addEventListener("load", async () => {
-  await loadStopData();
+  await loadStopData(map);
   await loadBusData();
 });
 setInterval(updateBusTimestamps, 1000);
