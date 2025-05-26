@@ -47,16 +47,14 @@ export async function loadBusData() {
       IN_TRANSIT_TO: "En transit",
       STOPPED_AT: "Arrêté",
       INCOMING_AT: "En approche",
+      UNKNOWN: "Statut non renseigné",
     };
 
     const delayMap = {};
     delayData.content.entity.forEach((delay) => {
       const tripId = delay.id;
-      if (
-        delay.trip_update &&
-        Array.isArray(delay.trip_update.stop_time_update)
-      ) {
-        delay.trip_update.stop_time_update.forEach((update) => {
+      if (delay.tripUpdate && Array.isArray(delay.tripUpdate.stopTimeUpdate)) {
+        delay.tripUpdate.stopTimeUpdate.forEach((update) => {
           if (update.arrival && update.arrival.delay) {
             delayMap[tripId] = update.arrival.delay;
           }
@@ -67,15 +65,15 @@ export async function loadBusData() {
     busData.content.entity.forEach((bus) => {
       if (bus.vehicle && bus.vehicle.position) {
         const { latitude, longitude, speed } = bus.vehicle.position;
-        const currentStatus = bus.vehicle.current_status;
-        const stopId = bus.vehicle.stop_id;
-        const tripId = bus.vehicle.trip ? bus.vehicle.trip.trip_id : null;
+        const currentStatus = bus.vehicle.currentStatus;
+        const stopId = bus.vehicle.stopId;
+        const tripId = bus.vehicle.trip ? bus.vehicle.trip.tripId : null;
 
         if (latitude && longitude) {
           let defaultIconUrl = "assets/img/bus_icon.png";
           let routeIconUrl =
-            bus.vehicle.trip && bus.vehicle.trip.route_id
-              ? `assets/img/${bus.vehicle.trip.route_id}.png`
+            bus.vehicle.trip && bus.vehicle.trip.routeId
+              ? `assets/img/${bus.vehicle.trip.routeId}.png`
               : defaultIconUrl;
 
           let icon = L.icon({
@@ -105,7 +103,7 @@ export async function loadBusData() {
             .addTo(busMarkersLayer)
             .bindPopup(
               `<b>Bus ID:</b> ${bus.id}<br><b>Ligne:</b> ${
-                bus.vehicle.trip ? bus.vehicle.trip.route_id : "Non attribué"
+                bus.vehicle.trip ? bus.vehicle.trip.routeId : "Non attribué"
               }<br><b>Vitesse:</b> ${speedText}<br><b>Statut:</b> ${statusText}<br><b>Prochain arrêt:</b> ${stopName}<br><b>${delayText}</b><br><b>${estimatedDelayText}</b>`
             );
 
