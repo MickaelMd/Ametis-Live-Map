@@ -96,7 +96,11 @@ export async function loadBusData() {
           const delay = delayMap[tripId];
           const estimatedDelayText =
             delay !== undefined
-              ? `Retard estimé : ${delay} sec`
+              ? (() => {
+                  const delayMinutes = Math.floor(delay / 60);
+                  const delaySeconds = delay % 60;
+                  return `Retard estimé : ${delayMinutes} min ${delaySeconds} sec`;
+                })()
               : "Retard estimé : Non disponible";
 
           const busMarker = L.marker([latitude, longitude], { icon })
